@@ -1,0 +1,43 @@
+{% extends 'polls/index.html' %}
+{% block head %}
+{% load static %}
+
+{% endblock %}
+{% block content %}
+
+    <div class="row">
+        <div class="col-sm-4">
+            <form method="post" action="" style=" color: black;margin-top: 15px; margin-left: 15px;">
+              {% csrf_token %}
+              Film Ara: <input  type="text" name="filmLink" ><br>
+
+              <input class="btn-primary btn-sm" type="submit" value="Submit" style="margin-top: 15px;width: 200px;margin-left: 60px ">
+            </form>
+        </div>
+        <div class="col-sm-4" style="background-color: #1b8dbb">
+            <h2>Watch List</h2>
+            {% for i in watchList %}
+              <a type="button" class="list-group-item list-group-item-action">{{i.name}} <button id='{{i.name}}' onclick="watchList(this.id)" class="watched" style="background-color: red">izledim</button></a>
+            {% endfor %}
+        </div>
+        <div class="col-sm-4" style="background-color: #1b8dbb">
+            <h2>Watched List</h2>
+            {% for i in watchedList %}
+              <button type="button" class="list-group-item list-group-item-action"><a>{{i.name}}</a></button>
+            {% endfor %}
+        </div>
+
+
+    </div>
+
+<script>
+    function watchList(cliecked_id){
+      var title=cliecked_id;
+      title =  title.replace(/\s+/g, '_');
+      window.location.href='/home/movies/check/'+title+''
+
+    };
+</script>
+
+
+{% endblock %}

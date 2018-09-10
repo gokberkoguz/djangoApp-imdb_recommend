@@ -1,0 +1,37 @@
+{% extends 'polls/index.html' %}
+{% block head %}
+{% load static %}
+
+{% endblock %}
+{% block content %}
+
+
+
+    <form method="post" action="" style=" color: wheat;margin-top: 15px; margin-left: 15px;">
+      {% csrf_token %}
+      Film Ara: <input  type="text" name="filmLink" ><br>
+
+      <input type="submit" value="Submit" style="margin-top: 15px; ">
+    </form>
+
+<div class="container float-left">
+    <h3>Search Results</h3>
+    <ul>
+    {% for i in movies %}
+    <li> <a class="movies" href="#" hrefs="/app2/getMovie/{{i}}"+ >{{i}}</a> </li>
+    {% endfor %}
+    </ul>
+</div>
+
+<script>
+$(document).on("click",".movies",function() {
+    var title = $(this).html();
+    console.log(title)
+    title = title.replace(/\ /g, '_')
+    window.location.replace("/home/app2/getMovie/" + title);
+});
+
+
+
+</script>
+{% endblock %}

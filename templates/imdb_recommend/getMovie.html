@@ -1,0 +1,33 @@
+{% extends 'polls/index.html' %}
+{% block head %}
+{% load static %}
+
+{% endblock %}
+{% block content %}
+
+<h1>{{title}}</h1>
+<div class="container row">
+
+
+    <div class="col-sm-6">
+        <img style="width: 500px;height: 300px;" src="{{cover_url}}" alt="Italian Trulli">
+    </div>
+    <div class="col-sm-5">
+        <p>{{plot}}</p>
+    </div>
+    <div class="col-sm-1">
+    <form action="" method="POST">
+    {% csrf_token %}
+     <button  name="watchList" value="watchList" class="btn btn-sm">Add to the watchlist </button>
+    </form>
+    <form action="" method="post">
+    {% csrf_token %}
+    <button   id="watchedList" name="watchedList" value="watchedList" formmethod="POST" class="btn btn-sm" style="margin-top: 10px">Add to the watchedList</button>
+    </form>
+
+
+    </div>
+</div>
+
+
+{% endblock %}

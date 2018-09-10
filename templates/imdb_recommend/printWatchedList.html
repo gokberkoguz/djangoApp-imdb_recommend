@@ -1,0 +1,17 @@
+{% extends 'polls/index.html' %}
+{% block head %}
+{% load static %}
+
+{% endblock %}
+{% block content %}
+<h2>watched List</h2>
+{% for i in data %}
+<div class="container" style="width: 500px; height: 300px;background-color: #a7b6ab">
+    <p style="color:#ff841d; position: relative;left: 150px;top: 0px;bottom: 300px;font-size: 32px">{{i.title}}</p>
+    <img style="width: 250px;height: 250px;position: relative;left: -15px;top: -15px;bottom: 0px"  src= {{ i.cover_url }}>
+    <p> {{i.text}} </p>
+</div>
+
+{% endfor %}
+
+{% endblock %}

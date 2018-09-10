@@ -1,0 +1,4 @@
+      budget                                             genres                     homepage     id    ...                          tagline   title vote_average vote_count
+0  237000000  [{"id": 28, "name": "Action"}, {"id": 12, "nam...  http://www.avatarmovie.com/  19995    ...      Enter the World of Pandora.  Avatar          7.2      11800
+
+[1 rows x 20 columns]
